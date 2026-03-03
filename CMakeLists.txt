@@ -124,7 +124,7 @@ else()
 endif()
 
 if(NOT TARGET SDL3::Headers OR NOT TARGET ${sdl3_target_name})
-    find_package(SDL3 ${SDL_REQUIRED_VERSION} REQUIRED COMPONENTS ${sdl_required_components})
+    find_package(SDL3 ${SDL_REQUIRED_VERSION} REQUIRED COMPONENTS ${sdl_required_components} NO_CMAKE_FIND_ROOT_PATH)
 endif()
 
 SDL_DetectTargetCPUArchitectures(SDL_CPU_NAMES)
