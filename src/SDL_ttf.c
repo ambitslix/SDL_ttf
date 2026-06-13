@@ -41,7 +41,7 @@
 #  define TTF_USE_SDF 0
 #endif
 
-#if TTF_USE_SDF
+#if TTF_USE_SDF || TTF_USE_PLUTOSVG
 #include FT_MODULE_H
 #endif
 #define DEFAULT_SDF_SPREAD 8
@@ -4509,7 +4509,7 @@ static bool LayoutText(TTF_Text *text)
     Uint32 script = TTF_GetTextScript(text);
 
     if (!GetWrappedLines(font, text->text, length, direction, script, text->internal->x, wrap_width, trim_whitespace, &strLines, &numLines, &width, &height, false)) {
-        return true;
+        return false;
     }
     height += text->internal->y;
 
